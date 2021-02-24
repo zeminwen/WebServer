@@ -59,7 +59,6 @@ public class RegServlet {
                     raf.read(data);
                     String name=new String(data,"utf-8").trim();
                     //必须用trim()方法将读取到的空格截掉，否则和文件里的用户名匹配不上！
-                    System.out.println(name);
                     if (username.equals(name)){
                         File file=new File("webapps/myweb/have_user.html");
                         response.setEntity(file);
