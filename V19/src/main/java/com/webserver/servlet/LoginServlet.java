@@ -6,8 +6,13 @@ import com.webserver.http.HttpResponse;
 import java.io.File;
 import java.io.RandomAccessFile;
 
-public class LoginServlet {
-    public void service(HttpRequest request,HttpResponse response){
+public class LoginServlet extends HttpServlet {
+    @Override
+    public void doGet(HttpRequest request, HttpResponse response) {
+
+    }
+
+    public void doPost(HttpRequest request, HttpResponse response){
         System.out.println("LoginServlet:开始处理用户登录...");
         String username=request.getParameter("username");
         String password=request.getParameter("password");
