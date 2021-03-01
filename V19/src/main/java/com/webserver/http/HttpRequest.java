@@ -53,7 +53,7 @@ public class HttpRequest {
             }
 
             System.out.println("请求行:"+line);
-            //http://localhost:8088/index.html
+            //GET /index.html HTTP/1.1
             //将请求行按照空格拆分为三部分，并分别赋值给上述变量
             String[]data=line.split("\\s");
             method=data[0];
@@ -87,8 +87,8 @@ public class HttpRequest {
            如果uri不含有参数,则不需要拆分,直接将uri的值赋值给requestURI即可.
 
            如果uri含有参数，则需要拆分：
-           1：将uri按照"?"拆分为两部分，左侧赋值给requestURI,右侧赋值给queryString
-           2：在将queryString部分按照"&"拆分出每一组参数，然后每一组参数按照"="拆分
+           1：将uri按照"?"拆分为两部分，左侧赋值给requestURI(请求URI，指不含参数的URI),右侧赋值给queryString
+           2：在将queryString(查询URI,带有参数的URI部分)部分按照"&"拆分出每一组参数，然后每一组参数按照"="拆分
               为参数名和参数值，并将参数名作为key，参数值作为value保存到parameter这个
               Map中完成解析工作
          */
@@ -235,7 +235,6 @@ public class HttpRequest {
     public String getRequestURI() {
         return requestURI;
     }
-
     public String getQueryString() {
         return queryString;
     }
